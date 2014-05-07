@@ -1,9 +1,9 @@
 Given /^a user visits the static pages$/ do
-  visit '/static_pages/home'
+  visit root_path
 end
 
 When /^they visit the homepage$/ do
-	visit '/static_pages/home'
+	visit root_path
 end
 
 Then /^they should see the name of the website$/ do

@@ -2,7 +2,7 @@ Movietmins::Application.routes.draw do
 
   resources :users
   resources :movies
-
+  resources :reviews, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'

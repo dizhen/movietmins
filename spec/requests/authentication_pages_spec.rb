@@ -89,6 +89,19 @@ describe "Authentication" do
           it { should have_title('Sign in') }
         end
       end
+
+      describe "in the Reviews controller" do
+
+        describe "submitting to the create action" do
+          before { post reviews_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete review_path(FactoryGirl.create(:review)) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
     end
 
     describe "as wrong user" do
@@ -111,6 +124,7 @@ describe "Authentication" do
     describe "as non-admin user" do
       let(:user) { FactoryGirl.create(:user) }
       let(:non_admin) { FactoryGirl.create(:user) }
+      let(:movie) { FactoryGirl.create(:movie)}
 
       before { sign_in non_admin, no_capybara: true }
 
@@ -118,6 +132,11 @@ describe "Authentication" do
         before { delete user_path(user) }
         specify { expect(response).to redirect_to(root_url) }
       end
+
+      describe "submitting a delete request to the movies#destroy action" do
+         before{ delete movie_path(movie)}
+         specify { expect(response).to redirect_to(root_url) }
+       end
     end
   end
 end

@@ -19,6 +19,7 @@ class MoviesController < ApplicationController
   def show
   	@movie = Movie.find(params[:id])
     @reviews = @movie.reviews.paginate(page: params[:page])
+    @review = @movie.reviews.build if signed_in?
   end
 
   def index

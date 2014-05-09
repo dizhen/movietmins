@@ -15,6 +15,11 @@
         Cast: <%= @movie.cast %>
       <h2>
     </section>
+
+    <section>
+        <%= render 'shared/review_form' %>
+    </section>
+    
   </aside>
    <div class="span8">
     <% if @movie.reviews.any? %>

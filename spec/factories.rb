@@ -9,4 +9,13 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :movie do
+  	name "The Amazing Spider-Man 2"
+  	length "140"
+  	director "Marc Webb"
+  	cast "Andrew Garfield, Emma Stone"
+  	genre "Action"
+  end
+
 end

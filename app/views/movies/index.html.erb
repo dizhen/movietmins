@@ -1,0 +1,14 @@
+<% provide(:title, 'All movies') %>
+<h1>All movies</h1>
+
+<%= will_paginate %>
+
+<ul class="movies">
+	<% @movies.each do |movie| %>
+    <li>
+      <%= link_to movie.name, movie %>
+    </li>
+ <% end %>
+</ul>
+
+<%= will_paginate %>

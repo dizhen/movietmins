@@ -62,4 +62,21 @@ describe "Movie pages" do
       end
     end
   end
+
+  describe "profile page" do
+    let(:movie) { FactoryGirl.create(:movie) }
+    let!(:r1) { FactoryGirl.create(:review, movie: movie, content: "good") }
+    let!(:r2) { FactoryGirl.create(:review, movie: movie, content: "so so") }
+
+    before { visit movie_path(movie) }
+
+    it { should have_content(movie.name) }
+    it { should have_title(movie.name) }
+
+    describe "reviews" do
+      it { should have_content(r1.content) }
+      it { should have_content(r2.content) }
+      it { should have_content(movie.reviews.count) }
+    end
+  end
 end

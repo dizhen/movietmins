@@ -18,4 +18,9 @@ FactoryGirl.define do
   	genre "Action"
   end
 
+  factory :review do
+    content "Great"
+    movie
+  end
+
 end

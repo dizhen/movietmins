@@ -16,4 +16,13 @@
       <h2>
     </section>
   </aside>
+   <div class="span8">
+    <% if @movie.reviews.any? %>
+      <h3>Reviews (<%= @movie.reviews.count %>)</h3>
+      <ol class="reviews">
+        <%= render @reviews %>
+      </ol>
+      <%= will_paginate @reviews %>
+    <% end %>
+  </div>
 </div>

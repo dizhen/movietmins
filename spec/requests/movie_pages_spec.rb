@@ -63,7 +63,7 @@ describe "Movie pages" do
     end
   end
 
-  describe "profile page" do
+  describe "movie profile page" do
     let(:movie) { FactoryGirl.create(:movie) }
     let!(:r1) { FactoryGirl.create(:review, movie: movie, content: "good") }
     let!(:r2) { FactoryGirl.create(:review, movie: movie, content: "so so") }

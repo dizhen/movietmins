@@ -1,0 +1,23 @@
+<% provide(:title, @movie.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @movie.name %>
+      </h1>
+      <h2>
+        <%= @movie.length %> mins
+        <br>
+        <%= @movie.genre %>
+        <br> 
+        Director: <%= @movie.director %>
+        <br>
+        Cast: <%= @movie.cast %>
+      <h2>
+    </section>
+
+    <section>
+        <%= render 'shared/review_form' %>
+    </section>
+    
+  </aside>

@@ -7,7 +7,9 @@ class ReviewsController < ApplicationController
       flash[:success] = "Review posted!"
       redirect_to movie_path(@current_movie)
     else
-      render movie_path(@current_movie)
+      flash[:error] = "Error! Failed to create review."
+      @movies = Movie.paginate(page: params[:page])
+      render 'static_pages/home'
     end
   end
 

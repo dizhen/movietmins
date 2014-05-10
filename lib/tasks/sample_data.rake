@@ -31,6 +31,32 @@ namespace :db do
                            director: "Nicholas Stoller",
                            cast: "Zac Efron, Dave Franco, Rose Byrne, Seth Rogen",
                            genre: "Comedy")
+    movie4 = Movie.create!(name: "Heaven Is For Real",
+                           length: "100",
+                           director: "Randall Wallace",
+                           cast: "Greg Kinnear, Kelly Reilly",
+                           genre: "Drama")
+    movie5 = Movie.create!(name: "Legends Of Oz: Dorothy's Return",
+                           length: "88",
+                           director: "Will Finn",
+                           cast: "Hugh Dancy",
+                           genre: "Animation")
+    movie6 = Movie.create!(name: "The Other Woman",
+                           length: "109",
+                           director: "Nick Cassavetes",
+                           cast: "Cameron Diaz, Leslie Mann, Nikolaj Coster Waldau",
+                           genre: "Comedy")
+    movie7 = Movie.create!(name: "Captain America The Winter Soldier",
+                           length: "136",
+                           director: "Anthony Russo, Joe Russo",
+                           cast: "Chris Evans, Cobie Smulders",
+                           genre: "Action")
+    movie8 = Movie.create!(name: "Transformers Age Of Extinction",
+                           length: "200",
+                           director: "Michael Bay",
+                           cast: "Mark Wahlberg, Nicola Peltz",
+                           genre: "Action")
+
     movies = Movie.all
     50.times do
       content = Faker::Lorem.sentence(5)

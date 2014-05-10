@@ -1,8 +1,31 @@
-<div class="center hero-unit">
-  <h1>Welcome to Movietmins</h1>
-  <h2>
-      Going to the movie theater? <br>
-      Check out the reviews on movietmins!
-  </h2>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-success" %>
-</div>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span3">
+      <section>
+        <h1>
+          <%= current_user.name %>
+        </h1>
+        <span>
+          <%= link_to "view my profile", current_user %>
+        </span>
+      </section>
+      <section>
+        <%= render 'shared/movie_form' %>
+      </section>
+    </aside>
+  <div class="span8">
+      <h3>Lastest movies</h3>
+      <%= render 'shared/movie_list' %>
+    </div>
+  </div>
+
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to Movietmins</h1>
+    <h2>
+        Going to the movie theater? <br>
+        Check out the reviews on movietmins!
+    </h2>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-success" %>
+  </div>
+<% end %>

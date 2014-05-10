@@ -68,7 +68,10 @@ describe "Movie pages" do
     let!(:r1) { FactoryGirl.create(:review, movie: movie, content: "good") }
     let!(:r2) { FactoryGirl.create(:review, movie: movie, content: "so so") }
 
-    before { visit movie_path(movie) }
+    before do
+      sign_in user
+     visit movie_path(movie)
+   end
 
     it { should have_content(movie.name) }
     it { should have_title(movie.name) }
